@@ -1,38 +1,1389 @@
-.App {
+/* --- Style ogólne --- */
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+  box-sizing: border-box;
+}
+
+body {
+  position: relative;
+  margin: 0px;
+  padding: 0px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+a {
+  color: #fff;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #747474
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: 'Montserrat', sans-serif;
+}
+
+h1,
+h2 {
+  text-align: center;
+  font-weight: 600;
+}
+
+h1 {
+  font-size: 2.2em;
+}
+
+h2 {
+  font-size: 1.5em;
+}
+
+.zwykly_tekst {
+  font-size: 1.2em;
+  line-height: 1.4em;
+  font-weight: 300;
+}
+
+.negatyw {
+  filter: invert(1);
+}
+
+.monochrom {
+  filter: grayscale(100%);
+  transition: all 1s ease;
+}
+
+.monochrom:hover {
+  filter: grayscale(0%);
+
+}
+
+.responsywny {
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.obramowanie {
+  border: black 1px solid;
+}
+
+.tlo_z_obrazem {
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.separator_tlo_gora {
+  margin-top: 1px;
+}
+
+/* --- Układ strony --- */
+.pelna_szerokosc {
+  width: 100%;
+}
+
+.kontener_flex {
+  display: flex;
+	flex-direction: row;
+}
+
+/* --- Układ strony koniec --- */
+
+/* --- Wyrównania --- */
+.wysrodkowanie_pion {
+  display: flex;
+  align-items: center;
+}
+
+.wysrodkowanie {
+  justify-content: center;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.wyrownanie_lewe {
+  display: flex;
+  justify-content: flex-start;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.wyrownanie_prawe {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.justowane {
+  justify-content: space-between;
+}
+
+.kolumna {
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+/* --- Wyrównania koniec--- */
+
+/* --- Nawigacja --- */
+.nawigacja {
+  width: 100%;
+  height: 80px;
+  margin: 0px;
+  display: flex;
+  color: #fff;
+  z-index: 999;
+}
+
+.nawigacja img {
+  width: 250px;
+  margin-top: 10px;
+}
+
+.nawigacja_kontener {
+  width: 100%;
+}
+
+.nawigacja ul {
+  list-style: none;
+	width: 100%;
+	padding: 0px;
+}
+
+.nawigacja li {
+  margin: 0 15px;
+}
+
+@media (max-width: 1366px) {
+  .nawigacja li {
+      margin: 0 10px;
+      font-size: 12px;
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.logo {
+	width: 250px;
+}
+
+.header-box {
+  background-color: #000000;
+}
+
+.header {
+  max-width: 1300px;
+}
+
+/* --- Nawigacja koniec--- */
+
+
+/*--- Slider ---*/
+.slider_glowny {
+  width: 100%;
+  height: 100vh;
+  background-image: url(https://foto.hrp84.pl/zasoby/jpg/HRPstudio_006.jpg)
+}
+
+/*--- Animacje ---*/
+
+#przyslona {
+  width: 60% !important;
+  animation: obrot;
+  animation-duration: 12s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+.powiekszenie {
+  transform: scale(1.0);
+  transition: all 1s ease;
+}
+
+.powiekszenie:hover {
+  transform: scale(1.1);
+}
+
+.zmniejszenie {
+  transform: scale(1.0);
+  transition: all 1s ease;
+}
+
+.zmniejszenie:hover {
+  transform: scale(0.9);
+}
+
+.licznik_gora {
+  color: white;
+  text-align: center;
+  font-size: 4.1em;
+  font-weight: 600;
+  margin: 0px;
+}
+
+.licznik_dol {
+  color: white;
+  text-align: center;
+  font-size: 1.1em;
+  font-weight: 300;
+  margin: 0px;
+}
+
+#tlo_z_obrazem_01 {
+  background-image: url(https://foto.hrp84.pl/zasoby/jpg/bg1.jpg);
+}
+
+#tlo_z_obrazem_02 {
+  background-image: url(https://foto.hrp84.pl/zasoby/jpg/bg2.jpg);
+}
+
+.tlo_czarne {
+  background-color: black;
+}
+
+.zwisanie {
+  transform: translateY(0px);
+  transition: all 0.5s cubic-bezier(0.18, 0.89, 0.32, 1.28);
+}
+
+.zwisanie:hover {
+  transform: translateY(10px);
+  animation: zwisanie;
+  animation-duration: 2s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-delay: 0.5s;
+}
+
+@keyframes zwisanie {
+  0% {
+      transform: translateY(10px);
+  }
+
+  50% {
+      transform: translateY(20px);
+  }
+
+  100% {
+      transform: translateY(10px);
+  }
+}
+
+@keyframes obrot {
+  0% {
+      transform: rotate(0deg);
+  }
+
+  100% {
+      transform: rotate(359deg);
+  }
+}
+
+/*--- Animacje koniec---*/
+
+/*--- Slider ---*/
+
+header {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+.slider_obraz {
+  position: absolute;
+  min-width: 100%;
+  min-height: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.naglowek_h {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 40px;
+  font-family: tahoma, sans-serif;
+  text-shadow: 0 0 6px white;
+}
+
+.obraz_slider {
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  background-image: URL(https://foto.hrp84.pl/zasoby/jpg/HRPstudio_004.jpg);
+}
+
+.ladowanie {
+  width: 0%;
+  height: 0%;
+  z-index: -999;
+  padding: 0px;
+  margin: -1px;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  animation-name: ladowanie;
+  animation-duration: 2s;
+  animation-delay: 2s;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-in-out;
+  overflow: hidden;
+}
+
+.obraz_animacja_glowna {
+  width: 100%;
+  height: 100vh;
+  padding: 0px;
+  margin: -1px;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  animation-name: animacja_glowna;
+  animation-duration: 24s;
+  animation-delay: 2s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+  overflow: hidden;
+}
+
+@keyframes ladowanie {
+  0% {
+      background-image: URL(https://foto.hrp84.pl/zasoby/jpg/HRPstudio_004.jpg);
+  }
+
+  33% {
+      background-image: URL(https://foto.hrp84.pl/zasoby/jpg/HRPstudio_005.jpg);
+  }
+
+  66% {
+      background-image: URL(https://foto.hrp84.pl/zasoby/jpg/HRPstudio_006.jpg);
+  }
+
+  70% {
+      background-image: URL(https://foto.hrp84.pl/zasoby/jpg/HRPstudio_007.jpg);
+  }
+
+  90% {
+      background-image: URL(https://foto.hrp84.pl/zasoby/jpg/HRPstudio_008.jpg);
+  }
+}
+
+@keyframes animacja_glowna {
+  0% {
+      transform: matrix(1.0, 0, 0, 1.0, 0, 0);
+      background-image: URL(https://foto.hrp84.pl/zasoby/jpg/HRPstudio_004.jpg);
+  }
+
+  18% {
+      background-image: URL(https://foto.hrp84.pl/zasoby/jpg/HRPstudio_004.jpg);
+  }
+
+  20% {
+      transform: matrix(1.15, 0, 0, 1.15, -60, 25);
+  }
+
+  22% {
+      background-image: URL(https://foto.hrp84.pl/zasoby/jpg/HRPstudio_005.jpg);
+  }
+
+  38% {
+      background-image: URL(https://foto.hrp84.pl/zasoby/jpg/HRPstudio_005.jpg);
+  }
+
+  40% {
+      transform: matrix(1.2, 0, 0, 1.2, -20, 50);
+  }
+
+  42% {
+      background-image: URL(https://foto.hrp84.pl/zasoby/jpg/HRPstudio_006.jpg);
+  }
+
+  58% {
+      background-image: URL(https://foto.hrp84.pl/zasoby/jpg/HRPstudio_006.jpg);
+  }
+
+  60% {
+      transform: matrix(1.2, 0, 0, 1.2, 20, 50);
+  }
+
+  62% {
+      background-image: URL(https://foto.hrp84.pl/zasoby/jpg/HRPstudio_007.jpg);
+  }
+
+  78% {
+      background-image: URL(https://foto.hrp84.pl/zasoby/jpg/HRPstudio_007.jpg);
+  }
+
+  80% {
+      transform: matrix(1.15, 0, 0, 1.15, 48, 25);
+  }
+
+  82% {
+      background-image: URL(https://foto.hrp84.pl/zasoby/jpg/HRPstudio_008.jpg);
+  }
+
+  97% {
+      background-image: URL(https://foto.hrp84.pl/zasoby/jpg/HRPstudio_008.jpg);
+  }
+
+  100% {
+      transform: matrix(1.0, 0, 0, 1.0, 0, 0);
+      background-image: URL(https://foto.hrp84.pl/zasoby/jpg/HRPstudio_004.jpg);
+  }
+}
+
+@media (max-width: 800px) {
+  .obraz_slider {
+      width: 100%;
+      height: 100vh;
+      overflow: hidden;
+      background-image: URL(https://foto.hrp84.pl/zasoby/jpg/mHRPstudio_004.jpg);
+  }
+
+  .ladowanie {
+      width: 0%;
+      height: 0%;
+      z-index: -999;
+      padding: 0px;
+      margin: -1px;
+      background-size: cover;
+      background-position: center center;
+      background-repeat: no-repeat;
+      animation-name: ladowanie;
+      animation-duration: 2s;
+      animation-delay: 2s;
+      animation-iteration-count: 1;
+      animation-timing-function: ease-in-out;
+      overflow: hidden;
+  }
+
+  #slider_kontener {
+      width: 100%;
+      height: 100vh;
+      overflow: hidden;
+  }
+
+  .obraz_animacja_glowna {
+      width: 120vw;
+      height: 105vh;
+      padding: 0px;
+      margin: -1px;
+      background-size: cover;
+      background-position: top right;
+      background-repeat: no-repeat;
+      animation-name: animacja_glowna;
+      animation-duration: 24s;
+      animation-delay: 2s;
+      animation-iteration-count: infinite;
+      animation-timing-function: ease-in-out;
+  }
+
+  @keyframes ladowanie {
+      0% {
+          background-image: URL(https://foto.hrp84.pl/zasoby/jpg/mHRPstudio_004.jpg);
+      }
+
+      33% {
+          background-image: URL(https://foto.hrp84.pl/zasoby/jpg/mHRPstudio_005.jpg);
+      }
+
+      66% {
+          background-image: URL(https://foto.hrp84.pl/zasoby/jpg/mHRPstudio_006.jpg);
+      }
+
+      70% {
+          background-image: URL(https://foto.hrp84.pl/zasoby/jpg/mHRPstudio_007.jpg);
+      }
+
+      90% {
+          background-image: URL(https://foto.hrp84.pl/zasoby/jpg/mHRPstudio_008.jpg);
+      }
+  }
+
+  @keyframes animacja_glowna {
+      0% {
+          transform: matrix(1.0, 0, 0, 1.0, 0, 0);
+          background-image: URL(https://foto.hrp84.pl/zasoby/jpg/mHRPstudio_004.jpg);
+      }
+
+      18% {
+          background-image: URL(https://foto.hrp84.pl/zasoby/jpg/mHRPstudio_004.jpg);
+      }
+
+      20% {
+          transform: matrix(1.1, 0, 0, 1.1, -30, 12);
+      }
+
+      22% {
+          background-image: URL(https://foto.hrp84.pl/zasoby/jpg/mHRPstudio_005.jpg);
+      }
+
+      38% {
+          background-image: URL(https://foto.hrp84.pl/zasoby/jpg/mHRPstudio_005.jpg);
+      }
+
+      40% {
+          transform: matrix(1.1, 0, 0, 1.1, -5, 25);
+      }
+
+      42% {
+          background-image: URL(https://foto.hrp84.pl/zasoby/jpg/mHRPstudio_006.jpg);
+      }
+
+      58% {
+          background-image: URL(https://foto.hrp84.pl/zasoby/jpg/mHRPstudio_006.jpg);
+      }
+
+      60% {
+          transform: matrix(1.1, 0, 0, 1.1, 5, 25);
+      }
+
+      62% {
+          background-image: URL(https://foto.hrp84.pl/zasoby/jpg/mHRPstudio_007.jpg);
+      }
+
+      78% {
+          background-image: URL(https://foto.hrp84.pl/zasoby/jpg/mHRPstudio_007.jpg);
+      }
+
+      80% {
+          transform: matrix(1.05, 0, 0, 1.05, 12, 12);
+      }
+
+      82% {
+          background-image: URL(https://foto.hrp84.pl/zasoby/jpg/mHRPstudio_008.jpg);
+      }
+
+      97% {
+          background-image: URL(https://foto.hrp84.pl/zasoby/jpg/mHRPstudio_008.jpg);
+      }
+
+      100% {
+          transform: matrix(1.0, 0, 0, 1.0, 0, 0);
+          background-image: URL(https://foto.hrp84.pl/zasoby/jpg/mHRPstudio_004.jpg);
+      }
+  }
+}
+
+/*--- Slider koniec---*/
+
+/*--- Ikony ---*/
+.nazwa_ikony {
+  text-align: center;
+  font-size: 1.5em;
+  font-weight: 700;
+  margin: 0px;
+}
+
+.opis_ikony {
+  text-align: center;
+  font-size: 0.9em;
+}
+
+.ikona {
+  width: 25%;
+  margin-top: 30px;
+  margin-bottom: 15px;
+}
+
+.ikona_cecha {
+  font-size: 75px;
+  margin-bottom: 15px;
+}
+
+.ikona_cecha_p {
+  margin: 0px;
+}
+
+.separator_gora {
+  margin: -10px;
+}
+
+.separator_dol {
+  margin: -10px;
+  transform: rotate(180deg);
+}
+
+.separator_ikona img {
+  z-index: 999;
+}
+
+/*--- Ikony koniec---*/
+
+/*---  Kontakt  ---*/
+.kontakt_kolo {
+  color: black;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  border-radius: 50%;
+  border-color: black;
+  border-width: 4px;
+  border-style: solid;
+}
+
+
+#kontakt_01 .kontakt_tekst {
+  margin-bottom: 10px;
+}
+
+#kontakt_01 {
+  width: 175px;
+  height: 175px;
+}
+
+#kontakt_01 .kontakt_ikona {
+  width: 100%;
+  text-align: center;
+  font-size: 50px;
+  margin: 0px;
+}
+
+#kontakt_01 .kontakt_tekst {
+  width: 100%;
+  text-align: center;
+  font-size: 25px;
+  font-weight: 600;
+  margin: 0px;
+}
+
+#kontakt_02 {
+  width: 155px;
+  height: 155px;
+  margin-left: -20px;
+}
+
+#kontakt_02 .kontakt_ikona {
+  width: 100%;
+  text-align: center;
+  font-size: 40px;
+  margin: 0px;
+}
+
+#kontakt_02 .kontakt_tekst {
+  width: 100%;
+  text-align: center;
+  font-size: 13px;
+  font-weight: 600;
+  margin: 0px;
+}
+
+#kontakt_03 {
+  width: 135px;
+  height: 135px;
+  margin-left: 4px;
+  margin-top: -36px;
+  margin-bottom: 0px;
+  margin-right: 9px;
+}
+
+#kontakt_03 .kontakt_ikona {
+  width: 100%;
+  text-align: center;
+  font-size: 40px;
+  margin: 0px;
+}
+
+#kontakt_03 .kontakt_tekst {
+  width: 100%;
+  text-align: center;
+  font-size: 13px;
+  font-weight: 600;
+  margin: 0px;
+}
+
+#kontakt_04 {
+  width: 125px;
+  height: 125px;
+  margin-left: 0px;
+  margin-top: -16px;
+  margin-bottom: 0px;
+  margin-right: 9px;
+}
+
+#kontakt_04 .kontakt_ikona {
+  width: 100%;
+  text-align: center;
+  font-size: 40px;
+  margin: 0px;
+}
+
+#kontakt_04 .kontakt_tekst {
+  width: 100%;
+  text-align: center;
+  font-size: 13px;
+  font-weight: 600;
+  margin: 0px;
+}
+
+#kontakt_05 {
+  width: 135px;
+  height: 135px;
+}
+
+#kontakt_05 .kontakt_ikona {
+  width: 100%;
+  text-align: center;
+  font-size: 40px;
+  margin: 0px;
+}
+
+#kontakt_05 .kontakt_tekst {
+  width: 100%;
+  text-align: center;
+  font-size: 11px;
+  font-weight: 600;
+  margin: 0px;
+}
+
+#kontakt_06 {
+  width: 115px;
+  height: 115px;
+  margin-left: -9px;
+  margin-top: -60px;
+  margin-bottom: 0px;
+  margin-right: 0px;
+}
+
+
+#kontakt_06 .kontakt_ikona {
+  width: 100%;
+  text-align: center;
+  font-size: 40px;
+  margin: 0px;
+}
+
+#kontakt_06 .kontakt_tekst {
+  width: 100%;
+  text-align: center;
+  font-size: 11px;
+  font-weight: 600;
+  margin: 0px;
+}
+
+#kontakt_07 {
+  width: 115px;
+  height: 115px;
+  margin-left: 0px;
+  margin-top: -29px;
+  margin-bottom: 0px;
+  margin-right: -33px;
+}
+
+#kontakt_07 .kontakt_ikona {
+  width: 100%;
+  text-align: center;
+  font-size: 40px;
+  margin: 0px;
+}
+
+#kontakt_07 .kontakt_tekst {
+  width: 100%;
+  text-align: center;
+  font-size: 11px;
+  font-weight: 600;
+  margin: 0px;
+}
+
+/*---  Kontakt koniec ---*/
+
+/*--- Ciasteczka ---*/
+.cookieConsentContainer {
+  text-align: center;
+  opacity: 1;
+  display: flex !important;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  z-index: 999;
+  bottom: 0px;
+  background-color: rgb(210, 210, 210);
+  width: 100%;
+}
+
+.cookieConsentContainer a {
+  color: black;
+}
+
+.cookieConsentContainer div {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.cookieButton {
+  background-color: white;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-radius: 50px;
+  color: black !important;
+  margin-left: 20px;
+}
+
+.cookieButton a {
+  color: black;
+  cursor: pointer;
+}
+
+/*--- Ciasteczka koniec---*/
+
+/*--- Zawartość ---*/
+
+
+
+#_liczniki,
+#_portfolio,
+#_o_mnie {
+  overflow: hidden;
+}
+
+#_galeria,
+#_oferta {
+  padding-left: 8px;
+  padding-right: 9px;
+  overflow: hidden;
+}
+
+/*--- Responsywne ---*/
+@media (max-width:1200px) {
+
+  html {
+      scroll-behavior: smooth;
+      overflow-x: hidden;
+  }
+
+
+  .responsywny_ukryty {
+      display: none;
+  }
+
+  .responsywny_zostaje {
+      width: 100% !important;
+  }
+
+  .kontener_flex_2 {
+      display: flex;
+      justify-content: space-between !important;
+      width: 100% !important;
+  }
+}
+
+@media (max-width:800px) {
+
+  .uslugi h3 {
+      font-size: 0.8em;
+  }
+
+  .kontener_flex {
+      flex-direction: column;
+  }
+
+  .responsywny_ukryty_800 {
+      display: none;
+  }
+
+  .col_10,
+  .col_15,
+  .col_20,
+  .col_25,
+  .col_30,
+  .col_33,
+  .col_35,
+  .col_45,
+  .col_50,
+  .col_60,
+  .col_70,
+  .col_80 {
+      width: auto;
+  }
+
+  .col_20_responsywne {
+      width: 100% !important;
+  }
+
+  .padding_mobilny {
+      padding-left: 8px;
+      padding-right: 8px;
+  }
+
+  #_pierwszy_akapit h1 {
+      font-size: 1.5em;
+  }
+
+  #_oferta h1 {
+      font-size: 1.5em;
+  }
+
+  .cookieConsentContainer {
+      flex-direction: column;
+  }
+
+  .cookieConsentContainer p {
+      padding: 5px;
+  }
+
+  .cookieButton {
+      margin-bottom: 15px !important;
+  }
+
+  #przyslona {
+      width: 50% !important;
+  }
+
+  .ikona_kontener .ikona_cecha {
+      font-size: 40px;
+  }
+
+  .ikona_kontener .nazwa_ikony {
+      font-size: 20px;
+  }
+
+  .ikona_kontener .opis_ikony {
+      font-size: 10px;
+  }
+
+  .ikona_kontener {
+      margin-bottom: 30px;
+      padding-left: 20%;
+      padding-right: 20%;
+  }
+
+  .licznik_gora {
+      margin-top: 40px;
+  }
+
+  .stopka_wysrodkowanie {
+      text-align: center !important;
+  }
+
+  .kontakt_01 {
+      justify-content: center;
+      margin-left: 0px;
+  }
+
+  .kontakt_02 {
+      display: flex;
+      justify-content: center !important;
+      margin-left: 0px;
+      margin-top: 0px;
+  }
+
+  .kontakt_03 {
+      display: flex;
+      justify-content: center !important;
+      margin-left: 0px;
+      margin-top: 0px;
+  }
+
+  .kontakt_04 {
+      display: flex;
+      justify-content: center !important;
+      margin-left: 0px;
+      margin-top: 0px;
+  }
+
+  .kontakt_05 {
+      display: flex;
+      justify-content: center !important;
+      margin-left: 0px;
+      margin-top: 0px;
+  }
+
+  .kontakt_06 {
+      display: flex;
+      justify-content: center !important;
+      margin-left: 0px;
+      margin-top: 0px;
+  }
+
+  .kontakt_07 {
+      display: flex;
+      justify-content: center !important;
+      margin-left: 0px;
+      margin-top: 0px;
+  }
+
+  #kontakt_01 {
+      justify-content: center;
+      margin-left: 0px;
+  }
+
+  #kontakt_02 {
+      display: flex;
+      justify-content: center !important;
+      margin-left: 0px;
+      margin-top: 0px;
+  }
+
+  #kontakt_03 {
+      display: flex;
+      justify-content: center !important;
+      margin-left: 60%;
+      margin-top: 0px;
+  }
+
+  #kontakt_04 {
+      display: flex;
+      justify-content: center !important;
+      margin-left: 80%;
+      margin-top: 0px;
+  }
+
+  #kontakt_05 {
+      display: flex;
+      justify-content: center !important;
+      margin-left: 60%;
+      margin-top: 0px;
+  }
+
+  #kontakt_06 {
+      display: flex;
+      justify-content: center !important;
+      margin-left: 80%;
+      margin-top: 0px;
+  }
+
+  #kontakt_07 {
+      display: flex;
+      justify-content: center !important;
+      margin-left: 35%;
+      margin-top: 0px;
+  }
+
+  pelny {
+      width: 100% !important;
+  }
+
+
+}
+
+@media (min-width:1201px) {
+  .kontener_kanapka {
+      display: none;
+  }
+}
+
+@media (min-width:801px) and (max-width:1200px) {
+  #przyslona {
+      width: 40% !important;
+  }
+
+  .przyslona {
+      width: 40% !important;
+  }
+
+  #_pierwszy_akapit {
+      padding-left: 10px;
+  }
+
+  .ikona_kontener .ikona_cecha {
+      font-size: 40px;
+  }
+
+  .ikona_kontener .nazwa_ikony {
+      font-size: 20px;
+  }
+
+  .ikona_kontener .opis_ikony {
+      font-size: 10px;
+  }
+
+  .ikona_kontener {
+      margin-bottom: 30px;
+  }
+
+  #_liczniki>section>.col_100 {
+      padding-left: 10px;
+      padding-right: 10px;
+  }
+
+  .licznik_gora {
+      font-size: 30px;
+  }
+
+  .licznik_dol {
+      font-size: 15px;
+  }
+
+  #_o_mnie>section>.col_100 {
+      padding-left: 30px;
+      padding-right: 10px;
+  }
+
+  #_kontakt>section>.col_100 {
+      justify-content: center;
+  }
+
+  #_kontakt .col_30 {
+      width: 50% !important;
+      justify-content: center;
+  }
+
+  .kontakt_01 {
+      justify-content: center;
+      margin-left: 40px;
+  }
+
+  .kontakt_02 {
+      display: flex;
+      justify-content: center !important;
+      margin-left: -14px;
+      margin-top: 0px;
+  }
+
+  .kontakt_03 {
+      display: flex;
+      justify-content: center !important;
+      margin-left: -14px;
+      margin-top: 26px;
+  }
+
+  .kontakt_04 {
+      display: flex;
+      justify-content: center !important;
+      margin-left: 63px;
+      margin-top: -12px;
+  }
+
+  .kontakt_05 {
+      display: flex;
+      justify-content: center !important;
+      margin-left: 58px;
+      margin-top: -18px;
+  }
+
+  .kontakt_06 {
+      display: flex;
+      justify-content: center !important;
+      margin-left: 13px;
+      margin-top: -49px;
+  }
+
+  .kontakt_07 {
+      display: flex;
+      justify-content: center !important;
+      margin-left: 146px;
+      margin-top: -3px;
+  }
+
+  #_stopka .col_20 {
+      width: 33%;
+  }
+
+  #_stopka .col_100 {
+      padding-left: 10px;
+      padding-right: 10px;
+      justify-content: center;
+  }
+
+
+}
+
+
+/*--- Responsywne koniec ---*/
+
+
+.menu_mobilne {
+  display: block;
+  width: 300px;
+  height: auto;
+  position: fixed;
+  top: -150%;
+  left: 50%;
+  z-index: 10;
+  transform: translate(-50%, -50%);
+  background-color: #000000;
+  border: 1px solid white;
+  transition: all 0.7s ease-out;
+}
+
+.menu_mobilne a {
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.menu_mobilne .lista_01 {
   display: flex;
   flex-direction: column;
   align-items: center;
+  list-style: none;
+  padding: 0px;
+}
+
+.menu_mobilne .lista_01 li {
+  margin-top: 10px;
+  font-size: 18px;
+}
+
+.menu_mobilne .lista_02 {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  padding: 0px;
+}
+
+.menu_mobilne .lista_02 li {
+  margin-top: 10px;
+  margin-left: 5px;
+  margin-right: 5px;
+  font-size: 18px;
+}
+
+.telefon {
+  margin-bottom: 25px !important;
+}
+
+.kontener_kanapka {
+  position: relative;
+  margin-right: 40px;
+}
+
+.przelacznik {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 35px;
+  height: 35px;
+  opacity: 0;
+  cursor: pointer;
+  z-index: 10;
+  transform: translate(-53%, -53%);
+}
+
+.kanapka {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 35px;
+  height: 35px;
+  z-index: 5;
+  transform: translate(-50%, -50%);
+  display: flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
 }
 
-.App-link {
-  color: #61dafb;
+.kanapka>div {
+  position: relative;
+  background-color: #fff;
+  width: 100%;
+  height: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.5s ease;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.kanapka>div::before,
+.kanapka>div::after {
+  content: '';
+  position: absolute;
+  background-color: #fff;
+  width: 100%;
+  height: 3px;
+  top: -10px;
+}
+
+.kanapka>div::after {
+  top: 10px;
+}
+
+.przelacznik:checked+.kanapka>div {
+  transform: rotate(135deg);
+}
+
+.przelacznik:checked+.kanapka>div::before,
+.przelacznik:checked+.kanapka>div::after {
+  top: 0px;
+  transform: rotate(90deg);
+}
+
+.przelacznik:checked~.menu_mobilne {
+  top: 50%;
+}
+
+
+
+.wezwanie {
+  font-size: 30px;
+  font-weight: 700;
+  margin-top: 5px;
+  margin-bottom: 45px;
+}
+
+.usługi h3 {
+  font-size: 1.1em;
+  line-height: 1.8em;
+}
+
+._ikona_menu {
+  width: 14px !important;
+  margin-top: 0px !important;
+}
+
+._ikona_menu:hover {
+  filter: opacity(0.7);
+}
+
+._ikona_cecha_svg {
+  height: 85px;
+}
+
+._ikona_kontakt_svg {
+  max-width: 25% !important;
+}
+
+
+#kontaktInner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#kontaktKafelki {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 50%;
+}
+
+.kafelek {
+  max-width: 320px;
+  margin-right: 20px;
+  margin-top: 25px;
+}
+
+.kafelek span {
+  line-height: 40px;
+  color: #000000;
+  font-size: 20px;
+  vertical-align: bottom;
+}
+
+.kafelek img {
+  height: 30px;
+  margin-right: 10px;
+}
+
+@media screen and (max-width:500px) {
+  #kontaktKafelki {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      width: 100%;
+      max-width: 100%;
+      padding-left: 20px;
   }
-  to {
-    transform: rotate(360deg);
-  }
+}
+
+.page-title {
+  padding-top: 150px;
 }
